@@ -48,6 +48,7 @@ public class TodoActivity extends AppCompatActivity {
         //membuat kondisi jiks yang dipilih adalah id mnLogut
         else if (item.getItemId()==R.id.mnLogout){
 
+
             //berpindah activity ke MainActivity
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
 
@@ -71,9 +72,10 @@ public class TodoActivity extends AppCompatActivity {
         //dikirimkan dari activity sebelumnya dengan kunci "nama"
         String nama = bundle.getString("nama");
 
-
         //menampilkan value dari variable nama kedalam txnama
         txnama.setText(nama);
+
+        
 
         //memanggil method submit
         Submit();

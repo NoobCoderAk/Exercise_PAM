@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     //pindah activity
                     Intent i = new Intent(getApplicationContext(), TodoActivity.class);
-                    startActivity(i);
+
 
                     //memasukkan bundle kedalam intent untuk dikirim ke ActivityTodo
                     i.putExtras(bundle);

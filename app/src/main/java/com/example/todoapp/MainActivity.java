@@ -61,6 +61,21 @@ public class MainActivity extends AppCompatActivity {
 
                 //jika data sesuai
                 if (nama.equals(user) && password.equals(pass)){
+
+                    //membuat objek bundle
+                    Bundle bundle = new Bundle();
+
+                    //masukkan value dari variable nama dengan kunci "nama"
+                    //dan dimasukan kedalam bundle
+                    bundle.putString("nama", nama.trim());
+
+                    //membuat objek intent berpindah activity ke ActivityTodo
+                    Intent intent = new Intent(getApplicationContext(), TodoActivity.class);
+
+                    //memasukkan bundle kedalam intent untuk dikirim ke ActivityTodo
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+
                     Toast.makeText(getApplicationContext(), "Login Behasil", Toast.LENGTH_SHORT).show();
                 }
 
