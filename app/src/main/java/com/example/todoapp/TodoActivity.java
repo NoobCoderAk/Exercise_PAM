@@ -29,38 +29,11 @@ public class TodoActivity extends AppCompatActivity {
     String task, jenisTask, waktuTask;
 
 
-    //membuat menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //method utnuk menampilkan menu.
-        getMenuInflater().inflate(R.menu.menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    //jika mengklik menu
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        //membuat kondisi jiks yang dipilih adalah id mnSubmit
-        if (item.getItemId() == R.id.mnSubmit){
-            Submit();
-        }
-        //membuat kondisi jiks yang dipilih adalah id mnLogut
-        else if (item.getItemId()==R.id.mnLogout){
-
-
-            //berpindah activity ke MainActivity
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
+
         //Menghubungkan variable dengan componen yang ada pada layout
         txnama = findViewById(R.id.tvNama);
 
@@ -74,8 +47,6 @@ public class TodoActivity extends AppCompatActivity {
 
         //menampilkan value dari variable nama kedalam txnama
         txnama.setText(nama);
-
-        
 
         //memanggil method submit
         Submit();
@@ -100,13 +71,27 @@ public class TodoActivity extends AppCompatActivity {
                 jenisTask=edJenisTask.getText().toString();
                 waktuTask=edWaktuTask.getText().toString();
 
-                //membuat alert jika task, jenis task atau waktu task, tidak terisi
-                if(task.isEmpty() || jenisTask.isEmpty() || waktuTask.isEmpty()){
-                    edTask.setError("task harus di isi");
-                    edJenisTask.setError("task harus di isi");
-                    edWaktuTask.setError("task harus di isi");
+                //membuat alert jika semua data kosong atau tidak terisi
+                if(task.isEmpty() && jenisTask.isEmpty() && waktuTask.isEmpty()){
 
-                    Snackbar.make(view,"Harus Terisi Semua !!", Snackbar.LENGTH_LONG).show();
+                    //membuat toast jika data semua kosong maka harus di isi
+                    Toast.makeText( getApplicationContext(), "Semua data harus diisi !!",Toast.LENGTH_SHORT).show();
+
+                }
+
+                // membuat  alert jika data task kosong atau tidak terisi
+                else if(task.isEmpty()){
+                    edTask.setError("task harus terisi !!");
+                }
+
+                //membuat alert jika data jenis task kosong atau tidak terisi
+                else if(jenisTask.isEmpty()){
+                    edJenisTask.setError("jenis task harus terisi !!");
+                }
+
+                //membuat alert jika data waktu kosong atau tidak terisi
+                else if (waktuTask.isEmpty()){
+                    edWaktuTask.setError("waktu harus terisi !!");
                 }
 
                 //pindah activity
@@ -132,5 +117,34 @@ public class TodoActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    //membuat menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //method utnuk menampilkan menu.
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //jika mengklik menu
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        //membuat kondisi jiks yang dipilih adalah id mnSubmit
+        if (item.getItemId()==R.id.mnSubmit){
+
+            //memanggil method submit
+            Submit();
+        }
+        //membuat kondisi jiks yang dipilih adalah id mnLogut
+        else if (item.getItemId()==R.id.mnLogout){
+
+
+            //berpindah activity ke MainActivity
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
