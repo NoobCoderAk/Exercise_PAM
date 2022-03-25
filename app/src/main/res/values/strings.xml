@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">TodoApp</string>
+    <string name="welcome">Welcom in Todo App</string>
+    <string name="tgambar">Gambar</string>
+    <string name="nama">Nama</string>
+    <string name="nama_hint">Masukkan Nama</string>
+    <string name="pasword_hint">Masukkan Passowrd</string>
+    <string name="password">Password</string>
+    <string name="signin_Log">SIGN IN</string>
+    <string name="reg_question">New to Todo App?</string>
+    <string name="register_link">Register</string>
+
+    <string name="email_hint">Masukkan Email</string>
+    <string name="email">Email</string>
+    <string name="repass">Re-Password</string>
+    <string name="repass_hint">Masukkan Ulang Pasword</string>
+    <string name="btreg">Register</string>
+    <string name="reg_desc">Register</string>
+
+    <string name="Head1">Selamat Datang</string>
+    <string name="Head2">Make Your Task !</string>
+    <string name="task">Task</string>
+    <string name="task_hint">Masukkan Task</string>
+    <string name="jenis_task">Jenis Task</string>
+    <string name="jenis_task_hint">Masukkan Jenis Task</string>
+    <string name="time_task">Time Task</string>
+    <string name="time_task_hint">Masukkan Lama Task</string>
+    <string name="txuser">username</string>
+
+
+    <string name="mSubmit">submit</string>
+    <string name="head3">Your Task</string>
+    <string name="mLogout">Log Out</string>
+
+
+    <string name="head_task">Task</string>
+    <string name="hasilTask">Hasil Task</string>
+    <string name="head_jenis">Jenis Task</string>
+    <string name="hasilJenis">Hasil Jenis</string>
+    <string name="head_waktu">Waktu Task</string>
+    <string name="hasilWaktu">Hasil Waktu</string>
+
+
+
+
+</resources>
