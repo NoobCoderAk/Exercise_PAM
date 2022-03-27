@@ -79,14 +79,24 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Login Behasil", Toast.LENGTH_SHORT).show();
                 }
 
-                //jika data kosng
+                //jika semua data kosng
                 else if(nama.isEmpty() && password.isEmpty()) {
-                    //jika form Email belum di isi / masih kosong
+                    //jika form nama belum di isi / masih kosong
                     ednama.setError("nama diperlukan");
                     edpassword.setError("");
                 }
 
-                //jika  input nama aslah
+                //jika nama kosong
+                else if (nama.isEmpty() && password.equals(pass)){
+                    ednama.setError("nama diperlukan");
+                }
+
+                //jika password kosong
+                else if (password.isEmpty() && nama.equals(user)){
+                    edpassword.setError("password diperlukan");
+                }
+
+                //jika  input nama salah
                 else if (nama != user && password.equals(pass)){
                     Toast t = Toast.makeText(getApplicationContext(), "Nama Salah", Toast.LENGTH_SHORT);
                     t.show();

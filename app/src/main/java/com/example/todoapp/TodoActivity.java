@@ -36,6 +36,7 @@ public class TodoActivity extends AppCompatActivity {
 
         //Menghubungkan variable dengan componen yang ada pada layout
         txnama = findViewById(R.id.tvNama);
+        fab=findViewById(R.id.floatingActionButton);
 
         //mendeklarasikan variable bundle yang akan digunakan untuk mengambil
         //pesan yang dikirim  melalui method intent
@@ -48,75 +49,76 @@ public class TodoActivity extends AppCompatActivity {
         //menampilkan value dari variable nama kedalam txnama
         txnama.setText(nama);
 
-        //memanggil method submit
-        Submit();
-
-    }
-
-    //submit melalui floating action button
-    public void Submit(){
-        //menghubungkan variable dengan komponen yang ada di layout
-        edTask=findViewById(R.id.edtTask);
-        edJenisTask=findViewById(R.id.edtJenisTask);
-        edWaktuTask=findViewById(R.id.edtTimeTask);
-        fab=findViewById(R.id.floatingActionButton);
-
         //jika mengklik button +
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //menyimpan inputan edittext ke variable
-                task=edTask.getText().toString();
-                jenisTask=edJenisTask.getText().toString();
-                waktuTask=edWaktuTask.getText().toString();
-
-                //membuat alert jika semua data kosong atau tidak terisi
-                if(task.isEmpty() && jenisTask.isEmpty() && waktuTask.isEmpty()){
-
-                    //membuat toast jika data semua kosong maka harus di isi
-                    Toast.makeText( getApplicationContext(), "Semua data harus diisi !!",Toast.LENGTH_SHORT).show();
-
-                }
-
-                // membuat  alert jika data task kosong atau tidak terisi
-                else if(task.isEmpty()){
-                    edTask.setError("task harus terisi !!");
-                }
-
-                //membuat alert jika data jenis task kosong atau tidak terisi
-                else if(jenisTask.isEmpty()){
-                    edJenisTask.setError("jenis task harus terisi !!");
-                }
-
-                //membuat alert jika data waktu kosong atau tidak terisi
-                else if (waktuTask.isEmpty()){
-                    edWaktuTask.setError("waktu harus terisi !!");
-                }
-
-                //pindah activity
-                else{
-
-                    //membuat objek bundle
-                    Bundle bun = new Bundle();
-
-                    //masukkan value dari variable nama dengan kunci
-                    //dan dimasukan kedalam bundle
-                    bun.putString("task", task.trim());
-                    bun.putString("jenis", jenisTask.trim());
-                    bun.putString("waktu", waktuTask.trim());
-
-                    Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(getApplicationContext(),TaskActivity.class);
-
-                    //memasukkan bundle kedalam intent untuk dikirim ke ActivityTask
-                    intent.putExtras(bun);
-
-                    startActivity(intent);
-                }
+                //memanggil method submit
+                Submit();
             }
         });
+
+
+    }
+
+    //method Submit
+    public void Submit(){
+        //menghubungkan variable dengan komponen yang ada di layout
+        edTask=findViewById(R.id.edtTask);
+        edJenisTask=findViewById(R.id.edtJenisTask);
+        edWaktuTask=findViewById(R.id.edtTimeTask);
+
+        //menyimpan inputan edittext ke variable
+        task=edTask.getText().toString();
+        jenisTask=edJenisTask.getText().toString();
+        waktuTask=edWaktuTask.getText().toString();
+
+        //membuat alert jika semua data kosong atau tidak terisi
+        if(task.isEmpty() && jenisTask.isEmpty() && waktuTask.isEmpty()){
+
+            //membuat toast jika data semua kosong maka harus di isi
+            Toast.makeText( getApplicationContext(), "Semua data harus diisi !!",Toast.LENGTH_SHORT).show();
+
+        }
+
+        // membuat  alert jika data task kosong atau tidak terisi
+        else if(task.isEmpty()){
+            edTask.setError("task harus terisi !!");
+        }
+
+        //membuat alert jika data jenis task kosong atau tidak terisi
+        else if(jenisTask.isEmpty()){
+            edJenisTask.setError("jenis task harus terisi !!");
+        }
+
+        //membuat alert jika data waktu kosong atau tidak terisi
+        else if (waktuTask.isEmpty()){
+            edWaktuTask.setError("waktu harus terisi !!");
+        }
+
+        //pindah activity
+        else{
+
+            //membuat objek bundle
+            Bundle bun = new Bundle();
+
+            //masukkan value dari variable nama dengan kunci
+            //dan dimasukan kedalam bundle
+            bun.putString("task", task.trim());
+            bun.putString("jenis", jenisTask.trim());
+            bun.putString("waktu", waktuTask.trim());
+
+            Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(getApplicationContext(),TaskActivity.class);
+
+            //memasukkan bundle kedalam intent untuk dikirim ke ActivityTask
+            intent.putExtras(bun);
+
+            startActivity(intent);
+        }
+
     }
     //membuat menu
     @Override

@@ -54,7 +54,11 @@ public class RegisterActivity extends AppCompatActivity {
 
                 //jika password tidak sama
                 else if ( !repassword.matches(password) ){
-                    Toast.makeText(RegisterActivity.this, "password salah", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "password salah", Toast.LENGTH_SHORT).show();
+                }
+
+                else if (password.isEmpty() && repassword.isEmpty() ){
+                    Toast.makeText(getApplicationContext(), "password  dan harus di isi", Toast.LENGTH_SHORT).show();
                 }
 
                 //pindah activity sekaligus register
